@@ -3,6 +3,7 @@
 -  此為 Alpha Camp CRUD A7作業 刪除功能 & 項目數計算
 -  使用 React 建立的 todo List，練習 React 的CRUD 功能操作: props 資料流及事件處理器
 -  此專案 從 React [Create React App](https://github.com/facebook/create-react-app) 建立
+-  目前建置為 Todo page，設定路由: http://localhost:3000
 
 ## 專案建置
 
