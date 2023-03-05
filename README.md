@@ -10,6 +10,8 @@
 
 2. 開啟終端機，將專案 clone 到本地
 
+   git clone https://github.com/Cherylruei/todolist-react.git
+
 3. 進入專案資料夾
    
    cd todolist-react
@@ -21,3 +23,11 @@
 5. 啟動專案，若順利自動開啟 http://localhost:3000 看到畫面及安裝成功
 
 6. npm start
+
+## 專案環境與使用工具
+
+- Node 14.16.0
+- react 18.2.0
+- react-dom 18.2.0
+- saaa 1.56.2
+- clsx 1.2.1
