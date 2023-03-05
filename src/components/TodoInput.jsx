@@ -82,7 +82,10 @@ const TodoInput = ({ inputValue, onChange, onKeyDone, onAddTodo }) => {
         />
       </StyledInputContainer>
       <StyledAddTodoActionContainer>
-        <button className="btn-reset">新增</button>
+        {/* 當使用者點擊新增按鈕時，觸發onClick事件，監聽這個事件被觸發時就會回傳 onAddTodo的 callback function */}
+        <button className="btn-reset" onClick={() => onAddTodo?.()}>
+          新增
+        </button>
       </StyledAddTodoActionContainer>
     </StyledAddTodoContainer>
   );
