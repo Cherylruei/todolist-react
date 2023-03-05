@@ -12,7 +12,7 @@
 
 3. 進入專案資料夾
    
-   cd todolist-react-starter
+   cd todolist-react
 
 4. 下載npm 套件
 
