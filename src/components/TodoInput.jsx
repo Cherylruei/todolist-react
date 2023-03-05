@@ -67,12 +67,19 @@ const StyledAddTodoActionContainer = styled.div`
     }
   }
 `;
-const TodoInput = ({inputValue, onChange, onKeyDone, onAddTodo}) => {
+const TodoInput = ({ inputValue, onChange, onKeyDone, onAddTodo }) => {
   return (
     <StyledAddTodoContainer>
       <StyledLabelIcon className="icon" htmlFor="add-todo-input" />
       <StyledInputContainer>
-        <input id="add-todo-input" type="text" placeholder="新增工作" />
+        <input
+          id="add-todo-input"
+          type="text"
+          placeholder="新增工作"
+          value={inputValue}
+          // 使用 onChange 來監聽使用者輸入內容的事件，onChange事件觸發時，我們要通知父層，將onChange攜帶 InputValue的最新狀態傳遞至父層
+          onChange={(e) => onChange?.(e.target.value)}
+        />
       </StyledInputContainer>
       <StyledAddTodoActionContainer>
         <button className="btn-reset">新增</button>
