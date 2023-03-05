@@ -9,20 +9,22 @@
 1. 請先確認有安裝 node.js
 
 2. 開啟終端機，將專案 clone 到本地
-
+   ```
    git clone https://github.com/Cherylruei/todolist-react.git
-
+   ```
 3. 進入專案資料夾
-   
+   ```
    cd todolist-react
-
+   ```
 4. 下載npm 套件
-
-   npm install
-
+    ```
+    npm install
+    ```
 5. 啟動專案，若順利自動開啟 http://localhost:3000 看到畫面及安裝成功
 
-6. npm start
+    ```
+    npm start
+    ```
 
 ## 專案環境與使用工具
 
