@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import clsx from 'clsx';
+
 import {
   CheckActiveIcon,
   CheckCircleIcon,
@@ -102,7 +104,8 @@ const StyledTaskItem = styled.div`
 
 const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
   return (
-    <StyledTaskItem>
+    // clsx 初始值為 " ", 要顯示 done 的className 是 todo.isDone 為 true的時候
+    <StyledTaskItem className={clsx('', { done: todo.isDone })}>
       <div className="task-item-checked">
         <span className="icon icon-checked" />
       </div>
