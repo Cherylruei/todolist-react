@@ -107,7 +107,14 @@ const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
     // clsx 初始值為 " ", 要顯示 done 的className 是 todo.isDone 為 true的時候
     <StyledTaskItem className={clsx('', { done: todo.isDone })}>
       <div className="task-item-checked">
-        <span className="icon icon-checked" />
+        <span
+          className="icon icon-checked"
+          // 在點擊觸發 onClick 事件的時候會把 onToggleDone的event往上傳，並同時會把這個todo item 的id 一起往上傳
+          // 確認傳到上層 todo collection
+          onClick={() => {
+            onToggleDone?.(todo.id);
+          }}
+        />
       </div>
       <div className="task-item-body">
         <span className="task-item-body-text">{todo.title}</span>
