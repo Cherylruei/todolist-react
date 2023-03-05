@@ -17,6 +17,7 @@ const TodoCollection = ({
             // 拿到 todo item 的 id, 並在把 onToggleDone event 所帶的 id 往上傳
             onToggleDone={(id) => onToggleDone?.(id)}
             onChangeMode={({ id, isEdit }) => onChangeMode?.({ id, isEdit })}
+            onSave={({ id, title }) => onSave?.({ id, title })}
           />
         );
       })}

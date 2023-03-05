@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import clsx from 'clsx';
+import { useRef } from 'react';
 
 import {
   CheckActiveIcon,
@@ -103,6 +104,16 @@ const StyledTaskItem = styled.div`
 `;
 
 const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
+  const inputRef = useRef(null);
+  const handleKeyDown = (event) => {
+    if (inputRef.current.value.length > 0 && event.key === 'Enter') {
+      onSave?.({ id: todo.id, title: inputRef.current.value });
+    }
+    if (event.key === 'Escape') {
+      onChangeMode?.({ id: todo.id, isEdit: false });
+    }
+  };
+
   return (
     // clsx 初始值為 " ", 要顯示 done 的className 是 todo.isDone 為 true的時候
     <StyledTaskItem
@@ -123,7 +134,13 @@ const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
         onDoubleClick={() => onChangeMode?.({ id: todo.id, isEdit: true })}
       >
         <span className="task-item-body-text">{todo.title}</span>
-        <input className="task-item-body-input" value={todo.title} />
+        <input
+          ref={inputRef}
+          className="task-item-body-input"
+          onKeyDown={handleKeyDown}
+          // 使用 defaultValue 設置 input 元件一開始被渲染時的值
+          defaultValue={todo.title}
+        />
       </div>
       <div className="task-item-action ">
         <button className="btn-reset btn-destroy icon"></button>
