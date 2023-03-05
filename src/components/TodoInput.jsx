@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import clsx from 'clsx';
 
 const StyledAddTodoContainer = styled.div`
   min-height: 52px;
@@ -67,9 +68,11 @@ const StyledAddTodoActionContainer = styled.div`
     }
   }
 `;
-const TodoInput = ({ inputValue, onChange, onKeyDone, onAddTodo }) => {
+const TodoInput = ({ inputValue, onChange, onKeyDown, onAddTodo }) => {
   return (
-    <StyledAddTodoContainer>
+    <StyledAddTodoContainer
+      className={clsx('', { active: inputValue.length > 0 })}
+    >
       <StyledLabelIcon className="icon" htmlFor="add-todo-input" />
       <StyledInputContainer>
         <input
@@ -79,9 +82,16 @@ const TodoInput = ({ inputValue, onChange, onKeyDone, onAddTodo }) => {
           value={inputValue}
           // 使用 onChange 來監聽使用者輸入內容的事件，onChange事件觸發時，我們要通知父層，將onChange攜帶 InputValue的最新狀態傳遞至父層
           onChange={(e) => onChange?.(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              onKeyDown?.();
+            }
+          }}
         />
       </StyledInputContainer>
-      <StyledAddTodoActionContainer>
+      <StyledAddTodoActionContainer
+        className={clsx('', { active: inputValue.length > 0 })}
+      >
         {/* 當使用者點擊新增按鈕時，觸發onClick事件，監聽這個事件被觸發時就會回傳 onAddTodo的 callback function */}
         <button className="btn-reset" onClick={() => onAddTodo?.()}>
           新增
