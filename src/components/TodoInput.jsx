@@ -69,6 +69,7 @@ const StyledAddTodoActionContainer = styled.div`
   }
 `;
 const TodoInput = ({ inputValue, onChange, onKeyDown, onAddTodo }) => {
+  // console.log('onChange', onChange);
   return (
     <StyledAddTodoContainer
       className={clsx('', { active: inputValue.length > 0 })}
@@ -81,7 +82,8 @@ const TodoInput = ({ inputValue, onChange, onKeyDown, onAddTodo }) => {
           placeholder="新增工作"
           value={inputValue}
           // 使用 onChange 來監聽使用者輸入內容的事件，onChange事件觸發時，我們要通知父層，將onChange攜帶 InputValue的最新狀態傳遞至父層
-          onChange={(e) => onChange?.(e.target.value)}
+          // 如果 unChange props 沒有傳進來，?. 就會回傳undefined 不會直接報錯
+          onChange={(e) => onChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               onKeyDown?.();

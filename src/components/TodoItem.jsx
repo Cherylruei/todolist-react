@@ -104,6 +104,7 @@ const StyledTaskItem = styled.div`
 `;
 
 const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
+  console.log('onSave', onSave);
   const inputRef = useRef(null);
   const handleKeyDown = (event) => {
     if (inputRef.current.value.length > 0 && event.key === 'Enter') {

@@ -27,7 +27,7 @@ const dummyTodos = [
 const TodoPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState(dummyTodos);
-  console.log('length', todos.length);
+
   const handleChange = (value) => {
     setInputValue(value);
   };
@@ -36,6 +36,7 @@ const TodoPage = () => {
     if (inputValue.length === 0) {
       return;
     }
+    //setNumber(n => n + 1); updater function
     setTodos((prevTodos) => {
       return [
         ...prevTodos,
@@ -103,7 +104,7 @@ const TodoPage = () => {
         if (todo.id === id) {
           return {
             ...todo,
-            title,
+            title: title,
             isEdit: false,
           };
         }
