@@ -29,16 +29,6 @@
       "title": "Attending a yoga class",
       "isDone": false,
       "id": 7
-    },
-    {
-      "title": "patch to do",
-      "isDone": false,
-      "id": 8
-    },
-    {
-      "title": "create to do",
-      "isDone": false,
-      "id": 9
     }
   ]
 }
