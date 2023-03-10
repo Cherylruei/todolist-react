@@ -30,6 +30,7 @@ const LoginPage = () => {
       <AuthInputContainer>
         <AuthInput
           label="密碼"
+          type="password"
           placeholder="請輸入密碼"
           value={password}
           onChange={(passwordInputValue) => setPassWord(passwordInputValue)}
