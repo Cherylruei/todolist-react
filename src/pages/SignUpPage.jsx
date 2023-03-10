@@ -13,6 +13,21 @@ const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassWord] = useState('');
   const [email, setEmail] = useState('');
+
+  // const handleClick = async () => {
+  //   if (username.length === 0) {
+  //     return;
+  //   }
+  //   if (password.length === 0) {
+  //     return;
+  //   }
+  //   if (email.length === 0) {
+  //     return;
+  //   }
+
+  //   const {success, authToken} = await 
+  // };
+
   return (
     <AuthContainer>
       <div>
