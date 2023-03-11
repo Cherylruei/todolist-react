@@ -8,27 +8,20 @@ import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login, checkPermission } from '../api/auth';
 import Swal from 'sweetalert2';
+import { useAuth } from 'contexts/AuthContext';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassWord] = useState('');
   const navigate = useNavigate();
+  const { login, isAuthenticated } = useAuth(); //取出需要的狀態與方法
 
   useEffect(() => {
-    const checkTokenIsValid = async () => {
-      const authToken = localStorage.getItem('authToken');
-      if (!authToken) {
-        return;
-      }
-      const result = await checkPermission(authToken);
-      if (result) {
-        navigate('/todos');
-      }
-    };
-    checkTokenIsValid();
-  }, [navigate]);
+    if (isAuthenticated) {
+      navigate('/todos');
+    }
+  }, [navigate, isAuthenticated]);
 
   const handleClick = async () => {
     if (username.length === 0) {
@@ -37,13 +30,13 @@ const LoginPage = () => {
     if (password.length === 0) {
       return;
     }
-    const { success, authToken } = await login({
+    const success = await login({
+      // 回傳值變成只有一個布林值
       username,
       password,
     });
 
     if (success) {
-      localStorage.setItem('authToken', authToken);
       Swal.fire({
         position: 'top',
         title: '登入成功',
@@ -51,7 +44,6 @@ const LoginPage = () => {
         icon: 'success',
         showConfirmButton: false,
       });
-      navigate('/todos');
       return;
     }
 
@@ -62,7 +54,7 @@ const LoginPage = () => {
       icon: 'error',
       showConfirmButton: false,
     });
-    // console.log('authToken', authToken);
+    // console.log('authToken', authToken); 失敗得到的 authToken 為 undefined
   };
   return (
     <AuthContainer>

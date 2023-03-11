@@ -12,7 +12,7 @@ export const login = async ({ username, password }) => {
       password,
     });
 
-    console.log('data', data);
+    // console.log('data', data);
 
     const { authToken } = data;
     if (authToken) {
