@@ -1,9 +1,15 @@
-# Todo List: Alpha Camp CRUD功能實作 A7作業
+# Todo List: Alpha Camp CRUD功能實作 作業
 
--  此為 Alpha Camp CRUD A7作業 刪除功能 & 項目數計算
--  使用 React 建立的 todo List，練習 React 的CRUD 功能操作: props 資料流及事件處理器
 -  此專案 從 React [Create React App](https://github.com/facebook/create-react-app) 建立
--  目前建置為 Todo page，設定路由: http://localhost:3000
+-  目前已建置GitHub Pages，可從以下連結進入使用屬於自己的 todolist。
+    https://cherylruei.github.io/todolist-react-starter
+-  網址會自動導向登入頁面，若尚未註冊請點選註冊連結，註冊登入完成即可進入 todolist 頁面
+ 
+登入頁面  
+<img width="632" alt="image" src="https://user-images.githubusercontent.com/117626038/225233110-d156347d-08c7-4c33-98e4-a10e0fb0f951.png">
+
+註冊頁面
+<img width="464" alt="image" src="https://user-images.githubusercontent.com/117626038/225233933-bd374c98-6db3-4533-aaa7-30adfdd34453.png">
 
 ## 專案建置
 
