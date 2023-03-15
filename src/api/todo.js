@@ -23,7 +23,7 @@ axiosInstance.interceptors.request.use(
 export const getTodos = async () => {
   try {
     const res = await axiosInstance.get(`${baseUrl}/todos`);
-    // console.log('response:', res);
+    console.log('response-get:', res);
     return res.data.data;
   } catch (error) {
     console.error(`[Get Todos failed]:`, error);
@@ -36,7 +36,8 @@ export const createTodo = async (payload) => {
       title,
       isDone,
     });
-    return res.data.data;
+    console.log('res.data-create', res.data);
+    return res.data;
   } catch (error) {
     console.error('[Create Todo failed]:', error);
   }
